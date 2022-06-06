@@ -45,6 +45,8 @@
 
 >Done as a part of the `Software Process` class at the [Polytechnic University of Valencia](http://www.upv.es/en) to learn the agile software development practices in collaboration with [@Qu1qu3](https://github.com/Qu1qu3), [@angelperezz21](https://github.com/angelperezz21), and [@diego-manuel1](https://github.com/diego-manuel1).
 
+> Unmaintained
+
 Quizify is a quiz management application destined for both teachers and students. It has the following features:
 - Quiz creation (teacher only)
 - Quiz realization (student only)
