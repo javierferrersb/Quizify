@@ -1,0 +1,170 @@
+﻿<Window x:Class="QuizifyUI.VistaPrincipal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuizifyUI"
+        mc:Ignorable="d"
+        Title="Vista Instructor de "
+        Height="800"
+        Width="1100"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <materialDesign:DialogHost Identifier="Dialog">
+        <materialDesign:DialogHost.DialogContent>
+            <Frame x:Name="DialogFrame"
+                   Height="200"
+                   Width="500"
+                   LoadCompleted="DialogFrame_LoadCompleted"
+                   NavigationUIVisibility="Hidden" />
+        </materialDesign:DialogHost.DialogContent>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TabControl x:Name="InstructorTabControl"
+                        Style="{StaticResource MaterialDesignNavigatilRailTabControl}"
+                        materialDesign:NavigationRailAssist.ShowSelectionBackground="True"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                        TabStripPlacement="Left"
+                        BorderThickness="0"
+                        BorderBrush="Transparent"
+                        materialDesign:ColorZoneAssist.Mode="Standard"
+                        SnapsToDevicePixels="True">
+                <materialDesign:NavigationRailAssist.FloatingContent>
+                    <Button x:Name="TabButtonPlus"
+                            Style="{StaticResource MaterialDesignFloatingActionButton}"
+                            Content="{materialDesign:PackIcon Size=24, Kind=Plus}"
+                            Margin="8"
+                            ToolTip="Crear Curso"
+                            ToolTipService.Placement="Left" />
+                </materialDesign:NavigationRailAssist.FloatingContent>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Height="auto"
+                                    Width="auto">
+                            <materialDesign:PackIcon Kind="Home"
+                                                     Width="24"
+                                                     Height="24"
+                                                     HorizontalAlignment="Center" />
+                            <TextBlock x:Name="InitTab"
+                                       Text="Inicio"
+                                       HorizontalAlignment="Center" />
+                        </StackPanel>
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <Grid Margin="20,10,10,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <TextBlock x:Name="GreetingTextBlock"
+                                       Text="Buenas"
+                                       Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                                       FontWeight="Bold"
+                                       VerticalAlignment="Bottom" />
+                            <StackPanel Orientation="Horizontal"
+                                        VerticalAlignment="Bottom"
+                                        HorizontalAlignment="Center"
+                                        Grid.Column="1"
+                                        Margin="0,0,0,5">
+                                <ToggleButton x:Name="DarkModeSwitch"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Top"
+                                              Click="DarkModeSwitch_Click" />
+                                <materialDesign:PackIcon Kind="MoonWaningCrescent" />
+                            </StackPanel>
+                            <Button x:Name="opcionesButton"
+                                    Content="Opciones"
+                                    HorizontalAlignment="Left"
+                                    Grid.Column="0"
+                                    Grid.Row="1"
+                                    Click="opcionesIdioma" 
+                                    Margin="0,0,0,30"
+                                    VerticalAlignment="Bottom"
+                                    Style="{StaticResource MaterialDesignFlatButton}"/>
+                        </Grid>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Height="auto"
+                                    Width="auto">
+                            <materialDesign:PackIcon Kind="Account"
+                                                     Width="24"
+                                                     Height="24"
+                                                     HorizontalAlignment="Center" />
+                            <TextBlock x:Name="profileTab"
+                                       Text="Perfil"
+                                       HorizontalAlignment="Center" />
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Frame x:Name="ProfileFrame"
+                           NavigationUIVisibility="Hidden"
+                           Margin="20,10,10,10"
+                           LoadCompleted="ProfileFrame_LoadCompleted" />
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Height="auto"
+                                    Width="auto">
+                            <materialDesign:PackIcon Kind="FolderQuestion"
+                                                     Width="24"
+                                                     Height="24"
+                                                     HorizontalAlignment="Center" />
+                            <TextBlock Text="Quizzes"
+                                       HorizontalAlignment="Center"
+                                       Height="26" />
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid Margin="20,10,10,10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Total Quizes"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Bottom"
+                                   Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                                   FontWeight="Bold" />
+                        <DataGrid x:Name="QuizzesTable"
+                                  AutoGenerateColumns="False"
+                                  CanUserSortColumns="True"
+                                  Grid.Row="1"
+                                  Grid.RowSpan="2"
+                                  Margin="0,20,0,0" />
+                    </Grid>
+                </TabItem>
+            </TabControl>
+            <materialDesign:Snackbar x:Name="CursoCreadoSnackbar"
+                                     Grid.Row="1"
+                                     VerticalAlignment="Bottom"
+                                     HorizontalAlignment="Stretch">
+                <materialDesign:SnackbarMessage x:Name="CursoCreadoSnack"
+                                                Content="Curso creado correctamente"
+                                                ActionClick="SnackbarMessage_ActionClick"
+                                                ActionContent="OK" />
+            </materialDesign:Snackbar>
+            <materialDesign:Snackbar x:Name="NoQuizesSnackbar"
+                                     Grid.Row="1"
+                                     VerticalAlignment="Bottom"
+                                     HorizontalAlignment="Stretch">
+                <materialDesign:SnackbarMessage x:Name="SnackSinQuiz"
+                                                Content="No le quedan quizes. Compre bonos para obtener más"
+                                                ActionClick="SnackbarMessage_ActionClick"
+                                                ActionContent="OK" />
+            </materialDesign:Snackbar>
+        </Grid>
+    </materialDesign:DialogHost>
+</Window>

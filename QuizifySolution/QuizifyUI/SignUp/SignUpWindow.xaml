@@ -1,0 +1,92 @@
+﻿<Window x:Class="QuizifyUI.SignUp.SignUpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuizifyUI.SignUp"
+        mc:Ignorable="d"
+        Title="SignUpWindow"
+        Height="480"
+        Width="300"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        ResizeMode="NoResize">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="SignUpTitleTextBox"
+                   Text="Sign Up"
+                   Grid.Row="0"
+                   Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                   FontWeight="Bold" />
+        <TextBox x:Name="NameTextBox"
+                 Grid.Row="1"
+                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                 materialDesign:HintAssist.Hint="Full name"
+                 Margin="0,25,0,0" />
+        <TextBox x:Name="EmailTextBox"
+                 Grid.Row="2"
+                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                 materialDesign:HintAssist.Hint="Email"
+                 Margin="0,10,0,0" />
+        <PasswordBox x:Name="PasswordTextBox"
+                     Grid.Row="3"
+                     Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
+                     materialDesign:HintAssist.Hint="Password"
+                     Margin="0,10,0,0" />
+        <PasswordBox x:Name="ConfirmPasswordTextBox"
+                     Grid.Row="4"
+                     Style="{StaticResource MaterialDesignOutlinedPasswordBox}"
+                     materialDesign:HintAssist.Hint="Confirm Password"
+                     Margin="0,10,0,0" />
+        <Grid Grid.Row="5"
+              Margin="0,10,0,0"
+              Height="58">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="UserTypeTextBlock"
+                       Text="Type of user:"
+                       Grid.ColumnSpan="2"
+                       Margin="0,0,0,7" />
+            <RadioButton x:Name="StudentRadioButton"
+                         Grid.Column="0"
+                         Content="Student"
+                         Grid.Row="1"
+                         GroupName="UserType"
+                         Margin="15,0,0,0"
+                         IsChecked="True" />
+            <RadioButton x:Name="InstructorRadioButton"
+                         Grid.Column="1"
+                         Grid.Row="1"
+                         Content="Instructor"
+                         GroupName="UserType"
+                         Margin="0,0,15,0" />
+        </Grid>
+        <Button x:Name="SignUpButton"
+                Content="SIGN UP"
+                Grid.Row="6"
+                Margin="0,10,0,0"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right" 
+                Click="SignUpButton_Click"/>
+    </Grid>
+</Window>

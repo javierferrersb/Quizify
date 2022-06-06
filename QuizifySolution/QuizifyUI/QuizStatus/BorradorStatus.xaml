@@ -1,0 +1,192 @@
+﻿<Page x:Class="QuizifyUI.QuizStatus.BorradorStatus"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:QuizifyUI.QuizStatus"
+      mc:Ignorable="d"
+      d:DesignHeight="450"
+      d:DesignWidth="800"
+      Title="BorradorStatus"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      TextElement.FontWeight="Regular"
+      TextElement.FontSize="13"
+      TextOptions.TextFormattingMode="Ideal"
+      TextOptions.TextRenderingMode="Auto"
+      Background="{DynamicResource MaterialDesignPaper}"
+      FontFamily="{DynamicResource MaterialDesignFont}">
+
+    <Grid>
+        <materialDesign:DialogHost BorderBrush="{DynamicResource MaterialDesignDivider}">
+            <materialDesign:DialogHost.DialogContent>
+                <Grid Width="300"
+                      Height="150"
+                      HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal"
+                                Margin="15">
+                        <materialDesign:PackIcon x:Name="Pack"
+                                                 Kind="InformationCircle"
+                                                 Foreground="{StaticResource PrimaryHueMidBrush}"
+                                                 Width="50"
+                                                 Height="50" />
+                        <TextBlock x:Name="InfoLanzamiento"
+                                   Foreground="Gray"
+                                   Width="200"
+                                   Margin="15 5"
+                                   TextWrapping="Wrap">
+                            Estás seguro que deseas lanzar el Quiz?
+                        </TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom"
+                                Margin="15">
+                        <Button x:Name="DenyLaunchButton"
+                                Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                                Style="{DynamicResource MaterialDesignFlatButton}"
+                                Margin="4"
+                                VerticalAlignment="Center">
+                            No
+                        </Button>
+                        <Button x:Name="AcceptLaunchButton"
+                                Click="LaunchQuizButton_Click"
+                                Style="{DynamicResource MaterialDesignFlatButton}"
+                                Margin="4"
+                                VerticalAlignment="Center">
+                            Sí
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:DialogHost.DialogContent>
+            <Grid>
+                <Grid.ColumnDefinitions>
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Bottom">
+                    <TextBlock x:Name="StatusMessageTextBlock"
+                               Text="Estado actual del quiz: "
+                               Style="{StaticResource MaterialDesignSubtitle1TextBlock}" />
+                    <TextBlock x:Name="StatusTextBlock"
+                               Text="Borrador"
+                               FontWeight="Bold"
+                               Style="{StaticResource MaterialDesignSubtitle1TextBlock}" />
+                </StackPanel>
+                <TextBlock x:Name="LanzarQuizTextBlock"
+                           Text="Lanzar quiz?"
+                           Grid.Row="1"
+                           Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+                           Margin="0,20,0,5" />
+                <Grid Grid.Row="2"
+                      Width="400"
+                      HorizontalAlignment="Left"
+                      Margin="20,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <DatePicker x:Name="StartingDatePicker"
+                                Grid.Row="0"
+                                materialDesign:HintAssist.Hint="Fecha Apertura Quiz"
+                                materialDesign:HintAssist.IsFloating="True"
+                                Margin="0,5,0,5" />
+                    <DatePicker x:Name="EndingDatePicker"
+                                Grid.Row="1"
+                                materialDesign:HintAssist.Hint="Fecha Cierre Quiz"
+                                materialDesign:HintAssist.IsFloating="True"
+                                Margin="0,5,0,5" />
+                    <CheckBox x:Name="ShowResultCheckBox"
+                              VerticalAlignment="Center"
+                              Grid.Row="2"
+                              Margin="0,10,0,5"
+                              Content="Mostrar resultado al enviar" />
+                    <CheckBox x:Name="RandomQuestionsCheckBox"
+                              VerticalAlignment="Center"
+                              Grid.Row="3"
+                              Margin="0,10,0,5"
+                              Content="Orden aleatorio de preguntas en cada realización" />
+                    <Grid Grid.Row="4"
+                          Margin="0,5,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="150" />
+                        </Grid.ColumnDefinitions>
+                        <CheckBox x:Name="LimitTriesCheckBox"
+                                  Grid.Column="0"
+                                  Content="Limitar número de intentos"
+                                  Checked="LimitTriesCheckBox_Checked"
+                                  Unchecked="LimitTriesCheckBox_Unchecked" />
+                        <TextBox x:Name="NumberOfTriesField"
+                                 Grid.Column="1"
+                                 Text="1"
+                                 Width="150"
+                                 materialDesign:HintAssist.Hint="Número de Intentos"
+                                 materialDesign:HintAssist.IsFloating="True"
+                                 HorizontalAlignment="Right"
+                                 VerticalAlignment="Center"
+                                 PreviewTextInput="NumberOfTriesField_PreviewTextInput" />
+                    </Grid>
+                    <Grid Grid.Row="5"
+                          Margin="0,10,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="150" />
+                        </Grid.ColumnDefinitions>
+                        <CheckBox x:Name="LimitTimeCheckBox"
+                                  Grid.Column="0"
+                                  Content="Limitar tiempo de realización"
+                                  Checked="LimitTimeCheckBox_Checked"
+                                  Unchecked="LimitTimeCheckBox_Unchecked" />
+                        <TextBox x:Name="TimeField"
+                                 Grid.Column="1"
+                                 Text="1"
+                                 Width="150"
+                                 materialDesign:HintAssist.Hint="Tiempo (minutos)"
+                                 materialDesign:HintAssist.IsFloating="True"
+                                 HorizontalAlignment="Right"
+                                 VerticalAlignment="Center"
+                                 PreviewTextInput="TimeField_PreviewTextInput" />
+                    </Grid>
+                    <ComboBox x:Name="AnswerModeComboBox"
+                              materialDesign:HintAssist.Hint="Modo de avance"
+                              materialDesign:HintAssist.IsFloating="True"
+                              Grid.Row="6"
+                              Margin="0,10,0,5">
+                        <ComboBoxItem x:Name="VolverAtras"
+                                      Content="Se puede volver atrás" />
+                        <ComboBoxItem x:Name="sinVolverAtras"
+                                      Content="No se puede volver atrás" />
+                    </ComboBox>
+                </Grid>
+                <Button x:Name="LaunchQuizButton"
+                        Grid.Row="3"
+                        Content="LANZAR QUIZ"
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Margin="0,10,0,0"
+                        Cursor="Hand" />
+                <materialDesign:Snackbar x:Name="ErrorDataSnackBar"
+                                         Grid.Row="3"
+                                         HorizontalAlignment="Stretch">
+                    <materialDesign:SnackbarMessage x:Name="ErrorDataSnackBarMessage"
+                                                    ActionClick="ErrorDataSnackBarMessage_ActionClick"
+                                                    ActionContent="OK" />
+                </materialDesign:Snackbar>
+            </Grid>
+        </materialDesign:DialogHost>
+    </Grid>
+</Page>

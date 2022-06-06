@@ -1,0 +1,122 @@
+﻿<Page x:Class="QuizifyUI.PreguntaSeleccionMultiplePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:QuizifyUI"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="700"
+      Title="PreguntaSeleccionMultiplePage"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      TextElement.FontWeight="Regular"
+      TextElement.FontSize="13"
+      TextOptions.TextFormattingMode="Ideal" 
+      TextOptions.TextRenderingMode="Auto"        
+      Background="{DynamicResource MaterialDesignPaper}"
+      FontFamily="{DynamicResource MaterialDesignFont}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="QuestionStatement" Grid.Row="0" Text="Aqui va el enunciado" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                   TextWrapping="Wrap"/>
+        <TextBox x:Name="EditStatementField" 
+                   Grid.Row="0" 
+                   Text="" 
+                   HorizontalAlignment="Stretch" 
+                   VerticalAlignment="Bottom" 
+                   Grid.ColumnSpan="1"
+                   FontSize="24"
+                   IsEnabled="false"
+                   Visibility="Hidden"/>
+        <Button x:Name="EditStatementButton" 
+                Style="{StaticResource MaterialDesignIconButton}" 
+                Height="50"
+                Width="50"
+                Grid.Row="0"
+                Grid.Column="1"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Click="EditStatementHandler"
+                IsEnabled="false"
+                Visibility="Hidden"
+                ToolTip="Editar enunciado"
+                ToolTipService.Placement="Top" Margin="650,0,0,0" Grid.RowSpan="2">
+            <materialDesign:PackIcon Kind="Edit"/>
+        </Button>
+        <Button x:Name="SaveStatementButton" 
+                Style="{StaticResource MaterialDesignIconButton}" 
+                Height="50"
+                Width="50"
+                Grid.Row="0"
+                Grid.Column="1"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Click="SaveStatementHandler"
+                IsEnabled="false"
+                Visibility="Hidden"
+                ToolTip="Guardar enunciado"
+                ToolTipService.Placement="Top" Margin="650,0,0,0" Grid.RowSpan="2" Cursor="Hand">
+            <materialDesign:PackIcon Kind="ContentSave"/>
+        </Button>
+        <Grid x:Name="GridOpciones" Grid.Row="2">
+            <RadioButton x:Name="Option1" Grid.Row ="0" HorizontalAlignment="Left" Margin="17,20,0,0" VerticalAlignment="Top"/>
+            <CheckBox x:Name="checkOp1"  Content="" Grid.Row ="0" HorizontalAlignment="Left" Margin="17,20,0,0" VerticalAlignment="Top"/>
+            <RadioButton x:Name="Option2" Grid.Row ="1" Content="" HorizontalAlignment="Left" Margin="17,60,0,0" VerticalAlignment="Top"/>
+            <CheckBox x:Name="checkOp2"  Content="" Grid.Row ="1" HorizontalAlignment="Left" Margin="17,60,0,0" VerticalAlignment="Top"/>
+            <RadioButton x:Name="Option3" Grid.Row ="2" Content="" HorizontalAlignment="Left" Margin="17,100,0,0" VerticalAlignment="Top"/>
+            <CheckBox x:Name="checkOp3"  Content="" Grid.Row ="2" HorizontalAlignment="Left" Margin="17,100,0,0" VerticalAlignment="Top"/>
+            <RadioButton x:Name="Option4" Grid.Row ="3" Content="" HorizontalAlignment="Left" Margin="17,140,0,0" VerticalAlignment="Top"/>
+            <CheckBox x:Name="checkOp4"  Content="" Grid.Row ="3" HorizontalAlignment="Left" Margin="17,140,0,0" VerticalAlignment="Top"/>
+            <ProgressBar x:Name="answersOp1Distribution" HorizontalAlignment="Left" Height="10" Margin="279,24,0,0" VerticalAlignment="Top" Width="270" Grid.Row="0" Grid.Column="0"/>
+            <ProgressBar x:Name="answersOp2Distribution" HorizontalAlignment="Left" Height="10" Margin="279,64,0,0" VerticalAlignment="Top" Width="270" Grid.Row="0" Grid.Column="0"/>
+            <ProgressBar x:Name="answersOp3Distribution" HorizontalAlignment="Left" Height="10" Margin="279,104,0,0" VerticalAlignment="Top" Width="270" Grid.Column="0"/>
+            <ProgressBar x:Name="answersOp4Distribution" HorizontalAlignment="Left" Height="10" Margin="279,144,0,0" VerticalAlignment="Top" Width="270" Grid.Row="0" Grid.Column="0"/>
+            <TextBlock x:Name="EstudiantesOp1" Grid.Row ="0" HorizontalAlignment="Left" Margin="598,20,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock x:Name="EstudiantesOp2"  Grid.Row ="1" HorizontalAlignment="Left" Margin="598,60,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock x:Name="EstudiantesOp3" Grid.Row ="2" HorizontalAlignment="Left" Margin="598,100,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock x:Name="EstudiantesOp4" Grid.Row ="3" HorizontalAlignment="Left" Margin="598,140,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <Button x:Name="EditValueButton" 
+                Style="{StaticResource MaterialDesignIconButton}" 
+                Height="50"
+                Width="50"
+                Grid.Row="0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Click="EditValueHandler"
+                IsEnabled="false"
+                Visibility="Hidden"
+                ToolTip="Editar respuesta"
+                ToolTipService.Placement="Bottom" Margin="650,0,0,141" Cursor="Hand">
+                <materialDesign:PackIcon Kind="Edit"/>
+            </Button>
+            <Button x:Name="SaveValueButton" 
+                Style="{StaticResource MaterialDesignIconButton}" 
+                Height="50"
+                Width="50"
+                Grid.Row="0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Click="SaveValueHandler"
+                IsEnabled="false"
+                Visibility="Hidden"
+                ToolTip="Guardar respuesta"
+                ToolTipService.Placement="Bottom" Margin="650,0,0,141" Cursor="Hand">
+                <materialDesign:PackIcon Kind="ContentSave"/>
+            </Button>
+            <TextBlock x:Name="textOp1" Grid.Row ="0" HorizontalAlignment="Left" Margin="44,21,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock x:Name="textOp2" Grid.Row ="1" HorizontalAlignment="Left" Margin="44,61,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock x:Name="textOp3"  Grid.Row ="2" HorizontalAlignment="Left" Margin="44,101,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock x:Name="textOp4"  Grid.Row ="3" HorizontalAlignment="Left" Margin="44,141,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBox x:Name="op1Box" Grid.Row ="0" HorizontalAlignment="Left" Margin="44,20,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Visibility="Hidden" Cursor="IBeam"/>
+            <TextBox x:Name="op2Box" Grid.Row ="1" HorizontalAlignment="Left" Margin="44,60,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Visibility="Hidden"/>
+            <TextBox x:Name="op3Box" Grid.Row ="2" HorizontalAlignment="Left" Margin="44,100,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Visibility="Hidden" Cursor="IBeam"/>
+            <TextBox x:Name="op4Box" Grid.Row ="3" HorizontalAlignment="Left" Margin="44,140,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Visibility="Hidden"/>
+            <Button x:Name="RemoveSelectionButton" Visibility="Hidden" Content="BORRAR SELECCIÓN" HorizontalAlignment="Left" Margin="10,178,0,0" VerticalAlignment="Top" Click="RemoveButton_Clicked" Style="{StaticResource MaterialDesignFlatDarkButton}" Cursor="Hand"/>
+        </Grid>
+    </Grid>
+</Page>

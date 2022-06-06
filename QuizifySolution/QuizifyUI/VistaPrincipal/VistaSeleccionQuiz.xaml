@@ -1,0 +1,156 @@
+﻿<Page x:Class="QuizifyUI.VistaSeleccionQuiz"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:QuizifyUI"
+      mc:Ignorable="d"
+      d:DesignHeight="450"
+      d:DesignWidth="800"
+      Title="VistaSeleccionQuiz"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      TextElement.FontWeight="Regular"
+      TextElement.FontSize="13"
+      TextOptions.TextFormattingMode="Ideal"
+      TextOptions.TextRenderingMode="Auto"
+      Background="{DynamicResource MaterialDesignPaper}"
+      FontFamily="{DynamicResource MaterialDesignFont}">
+    <materialDesign:Transitioner SelectedIndex="0"
+                                 AutoApplyTransitionOrigins="True">
+        <materialDesign:TransitionerSlide>
+            <materialDesign:TransitionerSlide.BackwardWipe>
+                <materialDesign:CircleWipe />
+            </materialDesign:TransitionerSlide.BackwardWipe>
+            <materialDesign:TransitionerSlide.ForwardWipe>
+                <materialDesign:CircleWipe />
+            </materialDesign:TransitionerSlide.ForwardWipe>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="175" />
+                    <ColumnDefinition Width="175" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Orientation="Horizontal"
+                            Margin="0,0,10,0">
+                    <Button x:Name="GoUpButton"
+                            Style="{StaticResource MaterialDesignIconButton}"
+                            Width="30"
+                            Height="30"
+                            VerticalAlignment="Bottom"
+                            Click="GoUpButton_Click">
+                        <Button.Content>
+                            <materialDesign:PackIcon Kind="ArrowUp" />
+                        </Button.Content>
+                    </Button>
+                    <TextBlock x:Name="NombreContenido"
+                               Margin="5,0,0,0"
+                               Grid.Row="0"
+                               Text="Curso -> Contenido"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Bottom"
+                               Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                               FontWeight="Bold" />
+                </StackPanel>
+
+                <Button x:Name="AddQuizButton"
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        VerticalAlignment="Bottom"
+                        Click="AddQuizButton_Click"
+                        Visibility="Visible">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Add" />
+                            <TextBlock x:Name="TextAddQuizButton"
+                                       Text="Crear Quiz"
+                                       Margin="5,0,0,0" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button x:Name="ViewPreviousQuizesButton"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Visibility="Hidden"
+                        Style="{StaticResource MaterialDesignFlatButton}"
+                        Command="{x:Static materialDesign:Transitioner.MoveNextCommand}"
+                        Click="ViewPreviousQuizesButton_Click">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Eye" />
+                            <TextBlock x:Name="TextViewPreviousQuizesButton"
+                                       Text="VER QUIZZES REALIZADOS"
+                                       Margin="5,0,0,0" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <DataGrid x:Name="QuizzesTable"
+                          Grid.Row="1"
+                          Style="{StaticResource MaterialDesignDataGrid}"
+                          IsReadOnly="True"
+                          AutoGenerateColumns="False"
+                          Grid.ColumnSpan="3"
+                          MouseDoubleClick="QuizzesTable_MouseDoubleClick"
+                          Margin="0,20,0,0" />
+
+            </Grid>
+        </materialDesign:TransitionerSlide>
+        <materialDesign:TransitionerSlide>
+            <materialDesign:TransitionerSlide.BackwardWipe>
+                <materialDesign:CircleWipe />
+            </materialDesign:TransitionerSlide.BackwardWipe>
+            <materialDesign:TransitionerSlide.ForwardWipe>
+                <materialDesign:CircleWipe />
+            </materialDesign:TransitionerSlide.ForwardWipe>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="175" />
+                    <ColumnDefinition Width="175" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Orientation="Horizontal"
+                            Margin="0,0,10,0">
+                    <Button x:Name="GoUpButtonPrevious"
+                            Style="{StaticResource MaterialDesignIconButton}"
+                            Width="30"
+                            Height="30"
+                            VerticalAlignment="Bottom"
+                            Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}">
+                        <Button.Content>
+                            <materialDesign:PackIcon Kind="ArrowUp" />
+                        </Button.Content>
+                    </Button>
+                    <TextBlock x:Name="NombreContenidoPrevious"
+                               Margin="5,0,0,0"
+                               Grid.Row="0"
+                               Text="Curso -> Contenido"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Bottom"
+                               Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                               FontWeight="Bold" />
+                </StackPanel>
+                <DataGrid x:Name="PreviousQuizzesTable"
+                          Grid.Row="1"
+                          Style="{StaticResource MaterialDesignDataGrid}"
+                          IsReadOnly="True"
+                          AutoGenerateColumns="False"
+                          MouseDoubleClick="PreviousQuizzesTable_MouseDoubleClick"
+                          Grid.ColumnSpan="3"
+                          Margin="0,20,0,0" />
+            </Grid>
+        </materialDesign:TransitionerSlide>
+    </materialDesign:Transitioner>
+</Page>

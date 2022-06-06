@@ -1,0 +1,42 @@
+﻿<Window x:Class="QuizifyUI.RevisarResultado"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuizifyUI"
+        mc:Ignorable="d"
+        Title="Resultado del Quiz" Height="450" Width="800"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+        <Frame x:Name="QuestionFrame" Grid.Row="1" Margin="15,38,15,48" NavigationUIVisibility="Hidden" Grid.RowSpan="2" ></Frame>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="PreviousButton" Content="Atrás" Grid.Column="0" Click="PreviousButton_Click" Margin="15,0,5,0"/>
+            <Button x:Name="NextButton" Content="Siguiente" Grid.Column="1" Click="NextButton_Click" Margin="5,0,15,0"/>
+            <Button x:Name="ExitButton" Content="Salir" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="-0.027,0.007" Click="ExitButton_Click"/>
+        </Grid>
+        <Label x:Name="CursoAsignatura" Content="Curso > Asignatura o contenido > Nombre del Quiz" HorizontalAlignment="Left" Margin="15,13,0,0" VerticalAlignment="Top" Width="741" Height="40" FontSize="20"/>
+        <Label x:Name="TuNotaLabel" Content="Tu nota del Quiz:" HorizontalAlignment="Left" Margin="418,64,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="NotaQuiz" Content="0.0/0.0" HorizontalAlignment="Left" Margin="605,64,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="pregPointsLabel" Content="Puntuación de la pregunta:" HorizontalAlignment="Left" Margin="418,96,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.106,0.582" Grid.RowSpan="2"/>
+        <Label x:Name="PuntuacionPregunta" Content="0.0/0.0" HorizontalAlignment="Left" Margin="605,96,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.108,0.048" Grid.RowSpan="2"/>
+        <Label x:Name="NumPregunta" Content="Pregunta 0 de 0" HorizontalAlignment="Left" Margin="110,96,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.785,-0.045" Grid.RowSpan="2"/>
+    </Grid>
+</Window>

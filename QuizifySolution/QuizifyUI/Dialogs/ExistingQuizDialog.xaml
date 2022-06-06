@@ -1,0 +1,373 @@
+﻿<Page x:Class="QuizifyUI.ExistingQuizDialog"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:QuizifyUI"
+      mc:Ignorable="d"
+      d:DesignHeight="200"
+      d:DesignWidth="500"
+      Title="ExistingQuizDialog"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      TextElement.FontWeight="Regular"
+      TextElement.FontSize="18"
+      TextOptions.TextFormattingMode="Ideal"
+      TextOptions.TextRenderingMode="Auto"
+      FontFamily="{DynamicResource MaterialDesignFont}">
+
+    <materialDesign:Transitioner SelectedIndex="0"
+                                 AutoApplyTransitionOrigins="True">
+        <materialDesign:TransitionerSlide>
+            <Grid HorizontalAlignment="Stretch"
+                  x:Name="DialogGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.2*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="QuizNameTextBlock"
+                           Text="Nombre del Quiz"
+                           Grid.Row="0"
+                           Grid.ColumnSpan="2"
+                           VerticalAlignment="Top"
+                           Margin="10,10,15,5"
+                           Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                           FontWeight="Bold" />
+                <Button x:Name="HelpButton"
+                        Grid.Row="0"
+                        Grid.RowSpan="2"
+                        Content="{materialDesign:PackIcon Kind=Help}"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Grid.ColumnSpan="2"
+                        Command="{x:Static materialDesign:Transitioner.MoveNextCommand}"
+                        Margin="0,5,5,0" />
+                <Button x:Name="WeightQuizButton"
+                        Click="WeightQuizButtonButton_Click"
+                        Width="190"
+                        Height="35"
+                        Grid.Row="3">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Weight"
+                                                     Width="15"
+                                                     Height="15"
+                                                     VerticalAlignment="Center" />
+                            <TextBlock x:Name="WeightQuizButtonText"
+                                       Text="ASIGNAR PESO"
+                                       Margin="4,0,0,0" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button x:Name="QuizStatusButton"
+                        Click="QuizStatusButton_Click"
+                        Width="190"
+                        Height="35"
+                        Grid.Row="1"
+                        Grid.Column="1">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="CogPlay"
+                                                     Width="15"
+                                                     Height="15"
+                                                     VerticalAlignment="Center" />
+                            <TextBlock x:Name="QuizStatusButtonText"
+                                       Text="ESTADO"
+                                       Margin="4,0,0,0" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button x:Name="EditQuizButton"
+                        Click="EditQuizButton_Click"
+                        Width="190"
+                        Height="35"
+                        Grid.Row="1">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Edit"
+                                                     Width="15"
+                                                     Height="15"
+                                                     VerticalAlignment="Center" />
+                            <TextBlock x:Name="EditQuizButtonText"
+                                       Text="EDITAR"
+                                       Margin="4,0,0,0" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button x:Name="ViewQuizResultsButton"
+                        Click="ViewQuizResultsButton_Click"
+                        Width="190"
+                        Height="35"
+                        Grid.Row="2">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="BarChart"
+                                                     Width="15"
+                                                     Height="15"
+                                                     VerticalAlignment="Center" />
+                            <TextBlock x:Name="ViewQuizResultsButtonText"
+                                       Text="VER ESTADÍSTICAS"
+                                       Margin="4,0,0,0" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button x:Name="ViewStudentResultsButton"
+                        Click="ViewStudentResultsButton_Click"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Width="190"
+                        Height="35">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Person"
+                                                     Width="15"
+                                                     Height="15"
+                                                     VerticalAlignment="Center" />
+                            <TextBlock x:Name="ViewStudentResultsButtonText"
+                                       Text="VER ESTUDIANTES"
+                                       Margin="4,0,0,0" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button x:Name="QuizRecuperacionButton"
+                        Click="QuizRecuperacionButtonButton_Click"
+                        Width="190"
+                        Height="35"
+                        Grid.Row="4">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="BookMinus"
+                                                     Width="15"
+                                                     Height="15"
+                                                     VerticalAlignment="Center" />
+                            <TextBlock x:Name="RecuperacionQuizButtonText"
+                                       Text="QUIZ RECUPERACION"
+                                       Margin="4,0,0,0" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+
+                <Button x:Name="CloneQuizButton"
+                        Click="CloneQuizButton_Click"
+                        Width="190"
+                        Height="35"
+                        Grid.Column="1"
+                        Grid.Row="3">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ContentCopy"
+                                                     Width="15"
+                                                     Height="15"
+                                                     VerticalAlignment="Center" />
+                            <TextBlock x:Name="CloneQuizButtonText"
+                                       Text="CLONAR QUIZ"
+                                       Margin="4,0,0,0" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+                <Button x:Name="CancelCourseButton"
+                        Content="OK"
+                        Grid.Column="1"
+                        Grid.Row="4"
+                        Margin="5,4,15,4"
+                        Style="{StaticResource MaterialDesignFlatLightButton}"
+                        Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" />
+
+            </Grid>
+        </materialDesign:TransitionerSlide>
+
+        <materialDesign:TransitionerSlide>
+            <materialDesign:TransitionerSlide.BackwardWipe>
+                <materialDesign:CircleWipe />
+            </materialDesign:TransitionerSlide.BackwardWipe>
+            <materialDesign:TransitionerSlide.ForwardWipe>
+                <materialDesign:CircleWipe />
+            </materialDesign:TransitionerSlide.ForwardWipe>
+            <Grid HorizontalAlignment="Stretch"
+                  x:Name="DialogGridHelp"
+                  Background="#3f51b5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.2*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="HelpTextBlock"
+                           Text="Obtener ayuda"
+                           Grid.Row="0"
+                           Grid.ColumnSpan="2"
+                           Margin="10,10,15,5"
+                           Foreground="White"
+                           Style="{StaticResource MaterialDesignHeadline6TextBlock}"
+                           FontWeight="Bold" />
+                <Button x:Name="WeightQuizButtonHelp"
+                        Click="WeightQuizButtonHelp_Click"
+                        Width="190"
+                        Height="35"
+                        Grid.Row="3"
+                        Background="White"
+                        Foreground="Black"
+                        BorderBrush="White">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Weight"
+                                                     Width="15"
+                                                     Height="15"
+                                                     VerticalAlignment="Center" />
+                            <TextBlock x:Name="WeightQuizButtonTextHelp"
+                                       Text="ASIGNAR PESO"
+                                       Margin="4,0,0,0" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button x:Name="QuizStatusButtonHelp"
+                        Click="QuizStatusButtonHelp_Click"
+                        Width="190"
+                        Height="35"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Background="White"
+                        Foreground="Black"
+                        BorderBrush="White">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="CogPlay"
+                                                     Width="15"
+                                                     Height="15"
+                                                     VerticalAlignment="Center" />
+                            <TextBlock x:Name="QuizStatusButtonTextHelp"
+                                       Text="ESTADO"
+                                       Margin="4,0,0,0" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button x:Name="EditQuizButtonHelp"
+                        Click="EditQuizButtonHelp_Click"
+                        Width="190"
+                        Height="35"
+                        Grid.Row="1"
+                        Background="White"
+                        Foreground="Black"
+                        BorderBrush="White">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Edit"
+                                                     Width="15"
+                                                     Height="15"
+                                                     VerticalAlignment="Center" />
+                            <TextBlock x:Name="EditQuizButtonTextHelp"
+                                       Text="EDITAR"
+                                       Margin="4,0,0,0" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button x:Name="ViewQuizResultsButtonHelp"
+                        Click="ViewQuizResultsButtonHelp_Click"
+                        Width="190"
+                        Height="35"
+                        Grid.Row="2"
+                        Background="White"
+                        Foreground="Black"
+                        BorderBrush="White">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="BarChart"
+                                                     Width="15"
+                                                     Height="15"
+                                                     VerticalAlignment="Center" />
+                            <TextBlock x:Name="ViewQuizResultsButtonTextHelp"
+                                       Text="VER ESTADÍSTICAS"
+                                       Margin="4,0,0,0" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button x:Name="ViewStudentResultsButtonHelp"
+                        Click="ViewStudentResultsButtonHelp_Click"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Width="190"
+                        Height="35"
+                        Background="White"
+                        Foreground="Black"
+                        BorderBrush="White">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Person"
+                                                     Width="15"
+                                                     Height="15"
+                                                     VerticalAlignment="Center" />
+                            <TextBlock x:Name="ViewStudentResultsButtonTextHelp"
+                                       Text="VER ESTUDIANTES"
+                                       Margin="4,0,0,0" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+                <Button x:Name="CloneQuizButtonHelp"
+                        Click="CloneQuizButtonHelp_Click"
+                        Width="190"
+                        Height="35"
+                        Grid.Column="1"
+                        Grid.Row="3"
+                        Background="White"
+                        Foreground="Black"
+                        BorderBrush="White">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ContentCopy"
+                                                     Width="15"
+                                                     Height="15"
+                                                     VerticalAlignment="Center" />
+                            <TextBlock x:Name="CloneQuizButtonTextHelp"
+                                       Text="CLONAR QUIZ"
+                                       Margin="4,0,0,0" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button x:Name="QuizRecuperacionButtonHelp"
+                        Click="QuizRecuperacionButtonHelp_Click"
+                        Width="190"
+                        Height="35"
+                        Grid.Row="4"
+                        Background="White"
+                        Foreground="Black"
+                        BorderBrush="White">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="BookMinus"
+                                                     Width="15"
+                                                     Height="15"
+                                                     VerticalAlignment="Center" />
+                            <TextBlock x:Name="RecuperacionQuizButtonTextHelp"
+                                       Text="QUIZ RECUPERACION"
+                                       Margin="4,0,0,0" />
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button x:Name="CloseHelpButton"
+                        Content="BACK"
+                        Grid.Column="1"
+                        Grid.Row="4"
+                        Margin="5,4,15,4"
+                        Style="{StaticResource MaterialDesignFlatButton}"
+                        Foreground="White"
+                        Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}" />
+            </Grid>
+        </materialDesign:TransitionerSlide>
+    </materialDesign:Transitioner>
+</Page>

@@ -1,0 +1,128 @@
+﻿<Page x:Class="QuizifyUI.VistaSeleccionPreguntas"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:local="clr-namespace:QuizifyUI"
+      mc:Ignorable="d"
+      Title="BuscarPregunta"
+      d:DesignHeight="700"
+      d:DesignWidth="800"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      TextElement.FontWeight="Regular"
+      TextElement.FontSize="13"
+      TextOptions.TextFormattingMode="Ideal"
+      TextOptions.TextRenderingMode="Auto"
+      Background="{DynamicResource MaterialDesignPaper}"
+      FontFamily="{DynamicResource MaterialDesignFont}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="BuscarPreguntaTextBlock"
+                   Text="Buscar Pregunta"
+                   Grid.ColumnSpan="4"
+                   Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                   FontWeight="Bold" 
+                   VerticalAlignment="Bottom"/>
+        <Button x:Name="RefreshListButton"
+                Grid.Column="3"
+                Grid.Row="0"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right"
+                Click="RefreshListButton_Click"
+                Style="{StaticResource MaterialDesignIconButton}"
+                Height="30"
+                Width="30">
+            <Button.Content>
+                <materialDesign:PackIcon Kind="Refresh" />
+            </Button.Content>
+        </Button>
+                
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Margin="5">
+            <Button x:Name="ClearStatementButton"
+                    Content="Borrar"
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    HorizontalAlignment="Right"
+                    Click="ClearStatementButton_Click" />
+            <TextBox x:Name="StatementTextBox"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     materialDesign:HintAssist.Hint="Enunciado"
+                     TextChanged="Filters_TextChanged" />
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    Margin="5">
+            <Button x:Name="ClearTypeButton"
+                    Content="Borrar"
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    HorizontalAlignment="Right"
+                    Click="ClearTypeButton_Click"
+                    Cursor="Hand" />
+            <TextBox x:Name="TypeTextBox"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     materialDesign:HintAssist.Hint="Tipo"
+                     TextChanged="Filters_TextChanged" />
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="5">
+            <Button x:Name="ClearQuizButton"
+                    Content="Borrar"
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    HorizontalAlignment="Right"
+                    Click="ClearQuizButton_Click" />
+            <TextBox x:Name="QuizTextBox"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     materialDesign:HintAssist.Hint="Quiz"
+                     TextChanged="Filters_TextChanged"
+                     Cursor="IBeam" />
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Margin="5">
+            <Button x:Name="ClearTopicButton"
+                    Content="Borrar"
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    HorizontalAlignment="Right"
+                    Click="ClearTopicButton_Click" />
+            <TextBox x:Name="TopicTextBox"
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     materialDesign:HintAssist.Hint="Contenido"
+                     TextChanged="Filters_TextChanged" />
+        </StackPanel>
+
+        <TextBlock x:Name="AvailableQuestionsTextBox"
+                   Text="Preguntas Disponibles"
+                   Grid.Row="2"
+                   Grid.ColumnSpan="4"
+                   VerticalAlignment="Bottom"
+                   Style="{StaticResource MaterialDesignHeadline6TextBlock}" />
+        <DataGrid x:Name="QuestionsDataGrid"
+                  Grid.Row="3"
+                  Grid.ColumnSpan="4"
+                  AutoGenerateColumns="False"
+                  Margin="0,10,0,10" />
+    </Grid>
+</Page>

@@ -1,0 +1,37 @@
+﻿<Window x:Class="QuizifyUI.GestionBateriaPreguntas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuizifyUI"
+        mc:Ignorable="d"
+        Title="GestionBateriaPreguntas" Height="450" Width="800"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <materialDesign:DialogHost Identifier="Dialog">
+        <materialDesign:DialogHost.DialogContent>
+            <Frame x:Name="DialogFrame" Height="200" Width="500" LoadCompleted="DialogFrame_LoadCompleted" NavigationUIVisibility="Hidden"/>
+        </materialDesign:DialogHost.DialogContent>
+        <Grid>
+            <Button x:Name="returnButton" Content="VOLVER" HorizontalAlignment="Left" Margin="40,372,0,0" VerticalAlignment="Top" Height="35" Width="150" Click="back_Click" Cursor="Hand"/>
+            <Button x:Name="createBattery" Content="CREAR BATERÍA" HorizontalAlignment="Left" Margin="601,372,0,0" VerticalAlignment="Top" Height="35" Width="150" Click="createBattery_Click" Cursor="Hand"/>
+            <DataGrid x:Name="BatteryTable" Margin="20,126,10,126" AutoGenerateColumns="False" CanUserSortColumns="True" MouseDoubleClick="selectBattery_DoubleClick"/>
+            <Label x:Name="filtroPregLabel" Content="Filtrar por tipo de pregunta: " HorizontalAlignment="Left" Margin="39,77,0,0" VerticalAlignment="Top" Height="25"/>
+            <Label x:Name="filtroCursoLabel" Content="Filtrar por curso: " HorizontalAlignment="Left" Margin="470,77,0,0" VerticalAlignment="Top" Height="25"/>
+            <TextBox x:Name="buscador" HorizontalAlignment="Left" Margin="208,29,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.703,0.313" Cursor="IBeam" TextChanged="buscador_TextChanged"/>
+            <Label x:Name="findName" Content="Buscar por nombre: " HorizontalAlignment="Left" Margin="82,31,0,0" VerticalAlignment="Top" Height="25"/>
+            <Label x:Name="quizName" Content="Filtrar por quiz: " HorizontalAlignment="Left" Margin="478,31,0,0" VerticalAlignment="Top" Height="25"/>
+            <TextBox x:Name="tipoPreguntaText" HorizontalAlignment="Left" Margin="208,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.703,0.313" Cursor="IBeam" TextChanged="buscador_TextChanged"/>
+            <TextBox x:Name="cursoText" HorizontalAlignment="Left" Margin="571,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.703,0.313" Cursor="IBeam" TextChanged="buscador_TextChanged"/>
+            <TextBox x:Name="quizText" HorizontalAlignment="Left" Margin="571,29,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.703,0.313" Cursor="IBeam" TextChanged="buscador_TextChanged"/>
+
+        </Grid>
+    </materialDesign:DialogHost>
+
+</Window>

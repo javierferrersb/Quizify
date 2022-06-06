@@ -1,0 +1,34 @@
+﻿<Window x:Class="QuizifyUI.CreacionBateriaPreguntas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuizifyUI"
+        mc:Ignorable="d"
+        Title="CreacionBateriaPreguntas" Height="450" Width="504"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}" >
+    <Grid>
+        <TextBlock x:Name="selectTextQ" Text="Crear Batería" Style="{StaticResource MaterialDesignHeadline5TextBlock}" FontWeight="Bold"/>
+        <Button x:Name="returnButton" Content="VOLVER" HorizontalAlignment="Left" Margin="40,355,0,0" VerticalAlignment="Top" Height="35" Width="150" Click="back_Click"/>
+        <Button x:Name="addQuestion" Content="GESTIONAR PREGUNTAS" HorizontalAlignment="Left" Margin="254,355,0,0" VerticalAlignment="Top" Height="35" Width="208" Click="addQuestion_Click" Cursor="Hand"/>
+        <ComboBox x:Name="tipoPreguntaComboBox" HorizontalAlignment="Left" Margin="194,117,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="tipoPreguntaComboBox_SelectionChanged"/>
+        <ComboBox x:Name="cursoComboBox" HorizontalAlignment="Left" Margin="194,166,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cursoComboBox_SelectionChanged"/>
+        <ComboBox x:Name="quizComboBox" IsEnabled="False" HorizontalAlignment="Left" Margin="194,273,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="nombreBateria" HorizontalAlignment="Left" Margin="194,64,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="contenidoComboBox" IsEnabled="False" HorizontalAlignment="Left" Margin="194,215,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="contenidoComboBox_SelectionChanged"/>
+        <Label x:Name="nameLabel" Content="Nombre:" HorizontalAlignment="Left" Margin="83,64,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.674,-0.222" Height="24" Width="102"/>
+        <Label x:Name="cursoLabel" Content="Curso:" HorizontalAlignment="Left" Margin="83,166,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.674,-0.222" Height="24" Width="99"/>
+        <Label Content="Quiz:"  HorizontalAlignment="Left" Margin="83,273,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.674,-0.222" Height="24" Width="102"/>
+        <Label x:Name="pregTypeLabel" Content="Tipo de Pregunta:" HorizontalAlignment="Left" Margin="83,117,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.674,-0.222" Height="24"/>
+        <Label x:Name="topicLabel" Content="Contenido:" HorizontalAlignment="Left" Margin="83,215,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.674,-0.222" Height="25" Width="100"/>
+        <Button x:Name="borrar1" Content="Borrar" HorizontalAlignment="Left" Margin="336,60,0,0" Style="{StaticResource MaterialDesignFlatButton}"  Click="ClearNombre_Click" VerticalAlignment="Top"/>
+        <Button x:Name="borrar4" Content="Borrar" HorizontalAlignment="Left" Margin="336,113,0,0" Style="{StaticResource MaterialDesignFlatButton}" Click="ClearTipoPregunta_Click" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.111"/>
+    </Grid>
+</Window>

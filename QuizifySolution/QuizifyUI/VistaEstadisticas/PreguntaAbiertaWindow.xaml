@@ -1,0 +1,56 @@
+﻿<Window x:Class="QuizifyUI.PreguntaAbiertaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuizifyUI"
+        mc:Ignorable="d"
+        Title="PreguntaAbiertaWindow" Height="450" Width="800"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+
+    <Grid x:Name="ContentGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="70"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="QuestionStatement" 
+                   Grid.Row="0" 
+                   Text="Aqui va el enunciado" 
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Bottom" 
+                   Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                   Grid.ColumnSpan="2"
+                   Margin="0,0,0,5"
+                   TextWrapping="Wrap"/>
+        <TextBox x:Name="EditStatementField" 
+                   Grid.Row="0" 
+                   Text="" 
+                   HorizontalAlignment="Stretch" 
+                   VerticalAlignment="Bottom" 
+                   Grid.ColumnSpan="1"
+                   FontSize="24"
+                   IsEnabled="false"
+                   Visibility="Hidden"/>
+        <TextBox x:Name="AnswerField" 
+            materialDesign:HintAssist.Hint="Respuesta"
+            Grid.Row="2" 
+            Grid.ColumnSpan="2"
+            Style="{StaticResource MaterialDesignOutlinedTextBox}"
+            VerticalAlignment="Top"
+            AcceptsReturn="True"
+            TextWrapping="Wrap"
+            VerticalScrollBarVisibility="Auto"/>
+    </Grid>
+</Window>

@@ -1,0 +1,39 @@
+﻿<Window x:Class="QuizifyUI.AsignarPuntuacion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuizifyUI"
+        mc:Ignorable="d"
+        Title="AsignarPuntuacion" Height="450" Width="450"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <Grid>
+        <TextBlock x:Name="selectTextQ" Text="Asignar Puntuación" Style="{StaticResource MaterialDesignHeadline5TextBlock}" FontWeight="Bold" Margin="10,10,-10,-10"/>
+        <Button x:Name="saveButton" Content="GUARDAR" HorizontalAlignment="Left" Margin="244,309,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.489,-0.036" Width="110" Click="saveChange"/>
+        <Button x:Name="cancelButton" Content="CANCELAR" HorizontalAlignment="Left" Margin="108,309,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.489,-0.036" Width="110" Click="cancelChange"/>
+        <ComboBox x:Name="difMode" HorizontalAlignment="Left" Margin="191,204,0,0" VerticalAlignment="Top" Width="152">
+            <ComboBoxItem x:Name="MuyAlta" Content="Muy Alta"/>
+            <ComboBoxItem x:Name="Alta" Content="Alta"/>
+            <ComboBoxItem IsSelected="True" x:Name="Media" Content="Media"/>
+            <ComboBoxItem x:Name="Baja" Content="Baja"/>
+            <ComboBoxItem x:Name="MuyBaja" Content="Muy Baja"/>
+        </ComboBox>
+        <ComboBox x:Name="mark" HorizontalAlignment="Left" Margin="191,99,0,0" VerticalAlignment="Top" Width="138">
+            <ComboBoxItem>2</ComboBoxItem>
+            <ComboBoxItem>1.5</ComboBoxItem>
+            <ComboBoxItem IsSelected="True">1</ComboBoxItem>
+            <ComboBoxItem>0.75</ComboBoxItem>
+            <ComboBoxItem>0.5</ComboBoxItem>
+        </ComboBox>
+        <Label x:Name="DificultLabel" Content="Dificultad" HorizontalAlignment="Left" Margin="100,0,0,0" VerticalAlignment="Center" Height="25" FontSize="15"/>
+        <Label x:Name="Points" Content="Puntos" HorizontalAlignment="Left" Margin="100,99,0,0" VerticalAlignment="Top" Height="25" FontSize="15"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,24 @@
+﻿<Window x:Class="QuizifyUI.EdicionBateria"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuizifyUI"
+        mc:Ignorable="d"
+        Title="EdicionBateria" Height="450" Width="450">
+    <Grid>
+        <TextBlock x:Name="selectTextQ" Text="Editar Batería" Style="{StaticResource MaterialDesignHeadline5TextBlock}" FontWeight="Bold" Margin="30,15,-30,-15"/>
+        <Button x:Name="returnButton" Content="VOLVER" HorizontalAlignment="Left" Margin="30,355,0,0" VerticalAlignment="Top" Height="35" Width="150" Click="back_Click"/>
+        <Button x:Name="crearNuevaBateria"  Visibility="Hidden" Content="GESTIONAR PREGUNTAS EN BATERÍA NUEVA" HorizontalAlignment="Left" Margin="30,300,0,0" VerticalAlignment="Top" Height="35" Width="390" Click="editQuestionNewBattery_Click" Cursor="Hand"/>
+        <Button x:Name="editQuestion" Content="GESTIONAR PREGUNTAS" HorizontalAlignment="Left" Margin="210,355,0,0" VerticalAlignment="Top" Height="35" Width="209" Click="editQuestion_Click" Cursor="Hand"/>
+        <ComboBox x:Name="cursoComboBox" HorizontalAlignment="Left" Margin="181,133,0,0" VerticalAlignment="Top" Width="130" SelectionChanged="cursoComboBox_SelectionChanged"/>
+        <ComboBox x:Name="quizComboBox"  HorizontalAlignment="Left" Margin="181,249,0,0" VerticalAlignment="Top" Width="130" SelectionChanged="quizComboBox_SelectionChanged"/>
+        <TextBox x:Name="nombreBateria" HorizontalAlignment="Left" Margin="181,83,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="130" Cursor="IBeam" GotFocus="changeName"/>
+        <ComboBox x:Name="contenidoComboBox"  HorizontalAlignment="Left" Margin="182,191,0,0" VerticalAlignment="Top" Width="130" SelectionChanged="contenidoComboBox_SelectionChanged"/>
+        <Label x:Name="nameLabel"  Content="Nombre:" HorizontalAlignment="Left" Margin="118,83,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.674,-0.222" Height="25"/>
+        <Label x:Name="cursoLabel" Content="Curso:" HorizontalAlignment="Left" Margin="131,133,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.674,-0.222" Height="25"/>
+        <Label Content="Quiz:"  HorizontalAlignment="Left" Margin="137,249,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.674,-0.222" Height="25"/>
+        <Label x:Name="topicLabel" Content="Contenido:" HorizontalAlignment="Left" Margin="106,191,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.674,-0.222" Height="25"/>
+        <Button x:Name="guardarCambios" Visibility="Hidden" Content="GUARDAR CAMBIOS" HorizontalAlignment="Left" Margin="247,15,0,0" VerticalAlignment="Top" Height="35" Width="172" Click="saveChanges" Cursor="Hand"/>
+    </Grid>
+</Window>
