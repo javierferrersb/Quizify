@@ -85,7 +85,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-* OS: Windows 10+
+* OS: Windows 7 or higher
 * Visual Studio 2022
 
 ### Installation
