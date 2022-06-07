@@ -1,37 +1,61 @@
-## Welcome to GitHub Pages
+## About Quizify
 
-You can use the [editor on GitHub](https://github.com/javierferrersb/Quizify/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+![Product Name Screen Shot](https://user-images.githubusercontent.com/84251991/172255800-5c42facd-8d25-43f5-888f-260da63e8d20.png#gh-light-mode-only)![Product Name Screen Shot](https://user-images.githubusercontent.com/84251991/172256257-a1e438b3-21e2-42e7-914d-2febf531e0bc.png#gh-dark-mode-only)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+>Done as a part of the `Software Process` class at the [Polytechnic University of Valencia](http://www.upv.es/en) to learn the agile software development practices in collaboration with [@Qu1qu3](https://github.com/Qu1qu3), [@angelperezz21](https://github.com/angelperezz21), and [@diego-manuel1](https://github.com/diego-manuel1).
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+> Unmaintained
 
-```markdown
-Syntax highlighted code block
+Quizify is a quiz management application destined for both teachers and students. It has the following features:
+- Quiz creation (teacher only)
+- Quiz realization (student only)
+- User management
+- 3 types of questions:
+  - Open answer
+  - True / False
+  - Multiple choice
+- Question batches
+- Courses
+- Topics
+- Launch quizzes at a specified date
+- Ability to grade quizzes (teacher only)
+- View statistics of previous quizzes
+- Timed quizzes
+- Dark mode
+- Full app available in both Spanish and English
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
+### Built With
 
-1. Numbered
-2. List
+* [.NET 6.0](https://dotnet.microsoft.com/en-us/)
+* [Material Design In XAML](http://materialdesigninxaml.net/)
+* [Entity Framework](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore)
 
-**Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
-```
+## Getting Started
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+To get a local copy up and running follow these simple example steps.
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/javierferrersb/Quizify/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### Prerequisites
 
-### Support or Contact
+* OS: Windows 7 or higher
+* Visual Studio 2022
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/javierferrersb/Quizify.git
+   ```
+2. Build the solution
+
+3. Run the application and enjoy!
+
+
+## Additional Screenshots
+![Main Screen](https://user-images.githubusercontent.com/84251991/172259136-a84669ee-fdcb-4b95-87d4-d555f2b2bb98.png)
+![Editing a Quiz](https://user-images.githubusercontent.com/84251991/172259148-bb837d71-b60d-4b1b-b6c9-cadb5759d408.png)
+![Grading a quiz](https://user-images.githubusercontent.com/84251991/172259158-4d5ecc03-301d-46a0-b88a-93dd50240292.png)
